@@ -1,0 +1,7 @@
+commands:
+  - keybase help
+  - get keybase://public/bjgeiser/action_test/test.json file-test.json
+  - get keybase://public/bjgeiser/action_test/test.yaml file-test.yaml
+  - chmod a+rw test.yaml
+  - chmod a+rw mangle2.json
+  - ls -lha

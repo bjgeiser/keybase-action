@@ -1,0 +1,20 @@
+name: "Keybase Secrets Action"
+description: "Gets secrets from keybase and sets or stores them for use in future steps"
+
+inputs:
+  keybase_user:
+    description: Username of keybase user
+    required: true
+  keybase_paperkey:
+    description: Keybase paper key
+    required: true
+  action_type:
+    description: This controls the action type.  Types include, secrets, get, clone, keybase, batch, file and raw
+    required: true
+  action_command:
+    description: Command for a given action
+    required: true
+
+runs:
+  using: 'node16'
+  main: 'index.js'

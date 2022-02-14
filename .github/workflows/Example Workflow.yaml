@@ -1,0 +1,35 @@
+name: Example Workflow Test
+
+on:
+  pull_request:
+    branches: main
+  push:
+    branches: main
+    tags:
+      - '*'
+  workflow_dispatch:
+
+jobs:
+  example_workflow:
+    runs-on: [ubuntu-latest]
+    steps:
+      # Get the code
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Get secrets from keybase
+        id: secrets
+        uses: bjgeiser/keybase-action
+        with:
+          action_command: keybase://public/bjgeiser/action_test/test.yaml
+          action_type: secrets
+          keybase_user: ${{ secrets.KEYBASE_USER }}
+          keybase_paperkey: ${{ secrets.KEYBASE_PAPERKEY }}
+
+      - name: Use secrets
+        shell: bash
+        run: |
+          echo "Echo out secrets from previous steps"
+          echo "secret_name_1: ${{steps.secrets.outputs.secret_name_1}}"
+          echo "secret_name_2: ${{steps.secrets.outputs.secret_name_2}}"
+          echo "secret_name_3: ${{steps.secrets.outputs.secret_name_3}}"
