@@ -1,12 +1,6 @@
 name: Example Workflow Test
 
 on:
-  pull_request:
-    branches: main
-  push:
-    branches: main
-    tags:
-      - '*'
   workflow_dispatch:
 
 jobs:
@@ -33,4 +27,3 @@ jobs:
           echo "secret_name_1: ${{steps.secrets.outputs.secret_name_1}}"
           echo "secret_name_2: ${{steps.secrets.outputs.secret_name_2}}"
           echo "secret_name_3: ${{steps.secrets.outputs.secret_name_3}}"
-          

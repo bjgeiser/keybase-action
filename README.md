@@ -73,6 +73,9 @@ Load secrets into outputs for use in future steps
     echo "secret_name_2: ${{steps.secrets.outputs.secret_name_2}}"
     echo "secret_name_3: ${{steps.secrets.outputs.secret_name_3}}"
 ```
+#### Results
+![result.png](doc/result.png)
+
 ### Action Type: `get`
 
 ----
