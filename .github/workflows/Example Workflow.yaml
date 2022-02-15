@@ -13,13 +13,13 @@ jobs:
   example_workflow:
     runs-on: [ubuntu-latest]
     steps:
-      # Get the code
+        # Get the code
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Get secrets from keybase
         id: secrets
-        uses: bjgeiser/keybase-action
+        uses: bjgeiser/keybase-action@main
         with:
           action_command: keybase://public/bjgeiser/action_test/test.yaml
           action_type: secrets
@@ -33,3 +33,4 @@ jobs:
           echo "secret_name_1: ${{steps.secrets.outputs.secret_name_1}}"
           echo "secret_name_2: ${{steps.secrets.outputs.secret_name_2}}"
           echo "secret_name_3: ${{steps.secrets.outputs.secret_name_3}}"
+          
