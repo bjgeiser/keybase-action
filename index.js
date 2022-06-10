@@ -16,6 +16,7 @@ function build_docker_command(_args)
         "-e", "KEYBASE_UID=" + user.uid, "-e", "KEYBASE_GID=" + user.gid,
         '-e', 'KEYBASE_USERNAME=' + core.getInput("keybase_user", { required: true }) ,
         '-e', "KEYBASE_PAPERKEY=" + core.getInput("keybase_paperkey", { required: true }),
+        `-v`, `startup.sh:/startup.sh`,
         docker_image]
     return args.concat(_args);
 }
